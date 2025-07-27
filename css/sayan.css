@@ -7,7 +7,7 @@
     color: black;
 }
 
-.hero-container {
+.hero-main {
     
     background:
         radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.25) 0%, transparent 50%),
@@ -15,6 +15,11 @@
         radial-gradient(circle at 20% 80%, rgba(147, 51, 234, 0.35) 0%, transparent 50%),
         #ffffff;
 
+}
+
+.hero-container {
+    max-width: 1920px;
+    margin: 0 auto;
 }
 
 .nav {

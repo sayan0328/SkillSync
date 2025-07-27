@@ -19,8 +19,8 @@ body {
     justify-content: space-between;
     flex-direction: row;
     height: 90%;
-    width: 90%;
     overflow: hidden;
+    gap: 200px;
 
 }
 
@@ -29,12 +29,13 @@ body {
     position: relative;
     justify-content: center;
     align-items: center;
-    height: 408px;
-    width: 640px;
+    height: 526px;
+    width: 800px;
 }
 
 .heroImage2 {
-    height: 526px;
+    height: 100%;
+    width: 100%;
 }
 
 .heroContent {
