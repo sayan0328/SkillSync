@@ -1,0 +1,24 @@
+.padding-h-100 {
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.padding-v-34 {
+    padding-top: 34px;
+    padding-bottom: 34px;
+}
+
+.padding-v-70 {
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+.button-border {
+    border: 2px solid #666666;
+    padding: 11px 28px;
+    border-radius: 5px;
+}
+
+.fw-bold {
+    font-weight: bold;
+}
