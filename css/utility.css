@@ -1,24 +1,44 @@
 .padding-h-100 {
-    padding-left: 100px;
-    padding-right: 100px;
+    padding-left: 6.25rem;
+    padding-right: 6.25rem;
 }
 
 .padding-v-34 {
-    padding-top: 34px;
-    padding-bottom: 34px;
+    padding-top: 2.125rem;
+    padding-bottom: 2.125rem;
 }
 
 .padding-v-70 {
-    padding-top: 70px;
-    padding-bottom: 70px;
+    padding-top: 4.375rem;
+    padding-bottom: 4.375rem;
 }
 
 .button-border {
-    border: 2px solid #666666;
-    padding: 11px 28px;
-    border-radius: 5px;
+    border: 0.125rem solid #666666;
+    padding: 0.6875rem 1.75rem;
+    border-radius: 0.3125rem;
 }
 
 .fw-bold {
     font-weight: bold;
+}
+
+/* Responsive utilities */
+@media (max-width: 90rem) {
+    .padding-h-100 {
+        padding-left: 4rem;
+        padding-right: 4rem;
+    }
+}
+
+@media (max-width: 75rem) {
+    .padding-h-100 {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+    .padding-v-70 {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
 }
