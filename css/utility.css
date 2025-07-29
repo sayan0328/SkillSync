@@ -3,9 +3,19 @@
     padding-right: 6.25rem;
 }
 
+.margin-h-100 {
+    margin-left: 6.25rem;
+    margin-right: 6.25rem;
+}
+
 .padding-v-34 {
     padding-top: 2.125rem;
     padding-bottom: 2.125rem;
+}
+
+.padding-v-20 {
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
 }
 
 .padding-v-70 {
@@ -29,12 +39,22 @@
         padding-left: 4rem;
         padding-right: 4rem;
     }
+
+    .margin-h-100 {
+        margin-left: 4rem;
+        margin-right: 4rem;
+    }
 }
 
 @media (max-width: 75rem) {
     .padding-h-100 {
         padding-left: 2rem;
         padding-right: 2rem;
+    }
+
+    .margin-h-100 {
+        margin-left: 2rem;
+        margin-right: 2rem;
     }
 
     .padding-v-70 {
