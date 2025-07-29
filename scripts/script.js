@@ -42,7 +42,7 @@ skillCards.forEach((card) => {
 });
 
 function handleWheel(e) {
-  e.preventDefault();
+  // e.preventDefault();  // Prevents you to scroll while hovering on a card 
   console.log("Mouse wheel scroll disabled");
 }
 
@@ -179,7 +179,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   function handleWheel(e) {
-    e.preventDefault();
+    // e.preventDefault();  // Prevents you to scroll while hovering on a card 
     console.log("Mouse wheel scroll disabled");
   }
 
