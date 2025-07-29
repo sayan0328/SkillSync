@@ -65,7 +65,8 @@
     background-color: #EAEAEA;;
     display: flex;
     border-radius: 1rem;
-    padding: 0.375rem
+    padding: 0.375rem;
+    overflow: hidden;
     /* justify-content: space-between;
     align-items: center;
     gap: 1.875rem;
@@ -73,18 +74,58 @@
 }
 
 .chat-sidebar {
+    height: 75vh;
     width: 18.75rem;
     overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: none;
     padding: 0.625rem 1rem 1rem 0.625rem; /* -(chat-container padding) 0 0 -(chat-container padding) */
 }
 
-.person-card {
+.Sentperson-card {
     display: flex;
     flex-direction: column;
     gap: 0.625rem;
     background-color: #E4FFE4;
     padding: 0.625rem;
     border-radius: 1rem;
+    margin-bottom: 1.5rem;
+    cursor: pointer;
+}
+.Draftperson-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+    background-color: #EBEBEB;
+    padding: 0.625rem;
+    border: 2px solid #686868;
+    border-radius: 1rem;
+    margin-bottom: 1.5rem;
+    cursor: pointer;
+
+}
+.Seenperson-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+    background-color: #FFFFFF;
+    padding: 0.625rem;
+    border-radius: 1rem;
+    margin-bottom: 1.5rem;
+    cursor: pointer;
+
+}
+.Unreadperson-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+    background-color: #FFF1F1;
+    border: 2px solid #8414A6;
+    padding: 0.625rem;
+    border-radius: 1rem;
+    margin-bottom: 1.5rem;
+    cursor: pointer;
+
 }
 
 .chat-person {
@@ -95,11 +136,13 @@
 
 .chat-person img {
     width: 3.25rem;
+    border-radius: 50%;
+    border: 0.1rem solid #000000;
 }
 
-.person-details {
+/* .person-details {
 
-}
+} */
 
 .person-name {
     font-size: 1.25rem;
@@ -109,6 +152,12 @@
 
 .chat-status {
     color: #06A30C
+}
+.Draftchat-status {
+    color: #9F9F9F
+}
+.Unreadchat-status {
+    color: #FF0000
 }
 
 .person-skills {
@@ -131,6 +180,8 @@
 
 .chat-topbar img {
     width: 3.25rem;
+    border-radius: 50%;
+    border: 0.1rem solid #000000;
 }
 
 .chatbox {
@@ -154,9 +205,7 @@
     border-top: 0.125rem solid #D9D9D9;
 }
 
-.chatbox-input {
 
-}
 
 /* Responsive styles */
 @media (max-width: 75rem) {
