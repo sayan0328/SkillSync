@@ -296,3 +296,20 @@ teamNameElement.addEventListener("click", () => {
     currentIndex = (currentIndex + 1) % teamNames.length;
     teamNameElement.textContent = teamNames[currentIndex];
 });
+
+// Loader functionality
+window.addEventListener("load", () => {
+    const loader = document.getElementById("loader");
+    const mainContent = document.getElementById("mainContent");
+
+    setTimeout(() => {
+        loader.style.opacity = "0";
+        setTimeout(() => {
+            loader.style.display = "none";
+            mainContent.style.display = "block";
+            setTimeout(() => {
+                mainContent.style.opacity = "1";
+            }, 50);
+        }, 500);
+    }, 4000);
+});
