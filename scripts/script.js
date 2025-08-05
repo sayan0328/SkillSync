@@ -296,3 +296,50 @@ teamNameElement.addEventListener("click", () => {
     currentIndex = (currentIndex + 1) % teamNames.length;
     teamNameElement.textContent = teamNames[currentIndex];
 });
+
+// Loader functionality - wait for preloaded images
+window.addEventListener("load", () => {
+    const loader = document.getElementById("loader");
+    const mainContent = document.getElementById("mainContent");
+
+    // Create promises for preloaded images
+    const preloadImages = ["assets/hero-1-image.svg", "assets/heroImage2.svg"];
+
+    const imagePromises = preloadImages.map((src) => {
+        return new Promise((resolve, reject) => {
+            const img = new Image();
+            img.onload = resolve;
+            img.onerror = reject;
+            img.src = src;
+        });
+    });
+
+    // Wait for all images to load, with minimum 2 seconds loader time
+    Promise.all([
+        ...imagePromises,
+        new Promise((resolve) => setTimeout(resolve, 2000)), // Minimum 2 seconds
+    ])
+        .then(() => {
+            loader.style.opacity = "0";
+            setTimeout(() => {
+                loader.style.display = "none";
+                mainContent.style.display = "block";
+                setTimeout(() => {
+                    mainContent.style.opacity = "1";
+                }, 50);
+            }, 500);
+        })
+        .catch(() => {
+            // If images fail to load, still show content after 4 seconds
+            setTimeout(() => {
+                loader.style.opacity = "0";
+                setTimeout(() => {
+                    loader.style.display = "none";
+                    mainContent.style.display = "block";
+                    setTimeout(() => {
+                        mainContent.style.opacity = "1";
+                    }, 50);
+                }, 500);
+            }, 4000);
+        });
+});
