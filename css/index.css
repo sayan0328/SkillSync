@@ -501,8 +501,6 @@ ul.customList li {
     max-width: 120rem;
     margin: 2rem auto 1.25rem;
     padding: 0 2rem;
-    flex-wrap: wrap;
-    gap: 1rem;
 }
 
 .SkillMasters h1 {
@@ -657,7 +655,6 @@ ul.customList li {
     position: absolute;
     bottom: 10rem;
     left: 50%;
-    /* max-width: 80%; */
     z-index: 1;
     transform: translateX(-50%);
     background: linear-gradient(90deg, #def0fb, #c3cef9, #f1d2f0);
@@ -779,7 +776,7 @@ ul.customList li {
     text-decoration: underline;
 }
 
-/* Responsive styles */
+/* Original Responsive styles only */
 @media (max-width: 75rem) {
     .hero-1 {
         flex-direction: column;

@@ -297,49 +297,157 @@ teamNameElement.addEventListener("click", () => {
     teamNameElement.textContent = teamNames[currentIndex];
 });
 
-// Loader functionality - wait for preloaded images
-window.addEventListener("load", () => {
+// OPTIMIZED LOADER FUNCTIONALITY - FIXED PRELOADING LOGIC
+window.addEventListener("DOMContentLoaded", () => {
     const loader = document.getElementById("loader");
     const mainContent = document.getElementById("mainContent");
 
-    // Create promises for preloaded images
-    const preloadImages = ["assets/hero-1-image.svg", "assets/heroImage2.svg"];
+    // Show content after maximum 2.5 seconds regardless of image loading
+    const maxWaitTime = 2500;
+    let contentShown = false;
 
-    const imagePromises = preloadImages.map((src) => {
-        return new Promise((resolve, reject) => {
-            const img = new Image();
-            img.onload = resolve;
-            img.onerror = reject;
-            img.src = src;
-        });
+    const showContent = () => {
+        if (contentShown) return; // Prevent multiple calls
+        contentShown = true;
+
+        loader.style.opacity = "0";
+        setTimeout(() => {
+            loader.style.display = "none";
+            mainContent.style.display = "block";
+            setTimeout(() => {
+                mainContent.style.opacity = "1";
+            }, 50);
+        }, 500);
+    };
+
+    // Set absolute maximum timeout
+    setTimeout(showContent, maxWaitTime);
+
+    // Try to preload critical images with timeout
+    const criticalImages = ["assets/hero-1-image.svg", "assets/heroImage2.svg"];
+    let loadedCount = 0;
+    let imageLoadTimeout;
+
+    // Set timeout for image loading (1.5 seconds max)
+    imageLoadTimeout = setTimeout(() => {
+        console.log("Image loading timeout - showing content anyway");
+        showContent();
+    }, 1500);
+
+    criticalImages.forEach((src, index) => {
+        const img = new Image();
+
+        img.onload = () => {
+            loadedCount++;
+            console.log(`Image ${index + 1} loaded: ${src}`);
+
+            // If both images loaded quickly, show content
+            if (loadedCount === criticalImages.length) {
+                clearTimeout(imageLoadTimeout);
+                setTimeout(showContent, 1000); // Show after 1 second minimum
+            }
+        };
+
+        img.onerror = () => {
+            loadedCount++;
+            console.log(`Image ${index + 1} failed to load: ${src}`);
+
+            // Even if images fail, continue
+            if (loadedCount === criticalImages.length) {
+                clearTimeout(imageLoadTimeout);
+                showContent();
+            }
+        };
+
+        // Start loading
+        img.src = src;
     });
-
-    // Wait for all images to load, with minimum 2 seconds loader time
-    Promise.all([
-        ...imagePromises,
-        new Promise((resolve) => setTimeout(resolve, 2000)), // Minimum 2 seconds
-    ])
-        .then(() => {
-            loader.style.opacity = "0";
-            setTimeout(() => {
-                loader.style.display = "none";
-                mainContent.style.display = "block";
-                setTimeout(() => {
-                    mainContent.style.opacity = "1";
-                }, 50);
-            }, 500);
-        })
-        .catch(() => {
-            // If images fail to load, still show content after 4 seconds
-            setTimeout(() => {
-                loader.style.opacity = "0";
-                setTimeout(() => {
-                    loader.style.display = "none";
-                    mainContent.style.display = "block";
-                    setTimeout(() => {
-                        mainContent.style.opacity = "1";
-                    }, 50);
-                }, 500);
-            }, 4000);
-        });
 });
+
+// Enhanced mobile touch support - KEEP AS IS
+function addMobileTouchSupport() {
+    const containers = [
+        cardContainer,
+        document.getElementById("cardsContainer"),
+    ];
+
+    containers.forEach((container) => {
+        if (!container) return;
+
+        let startTouch = null;
+        let isScrolling = false;
+
+        container.addEventListener(
+            "touchstart",
+            (e) => {
+                startTouch = e.touches[0];
+                isScrolling = false;
+            },
+            { passive: true }
+        );
+
+        container.addEventListener(
+            "touchmove",
+            (e) => {
+                if (!startTouch) return;
+
+                const currentTouch = e.touches[0];
+                const deltaX = Math.abs(
+                    currentTouch.clientX - startTouch.clientX
+                );
+                const deltaY = Math.abs(
+                    currentTouch.clientY - startTouch.clientY
+                );
+
+                // If horizontal swipe is dominant, prevent vertical scroll
+                if (deltaX > deltaY && deltaX > 10) {
+                    e.preventDefault();
+                    isScrolling = true;
+                }
+            },
+            { passive: false }
+        );
+
+        container.addEventListener(
+            "touchend",
+            () => {
+                startTouch = null;
+                isScrolling = false;
+            },
+            { passive: true }
+        );
+    });
+}
+
+// Initialize mobile support when DOM is ready
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", addMobileTouchSupport);
+} else {
+    addMobileTouchSupport();
+}
+
+// Optimize scroll performance for mobile - KEEP AS IS
+function optimizeForMobile() {
+    const isMobile = window.innerWidth <= 768;
+
+    if (isMobile) {
+        // Reduce animation complexity on mobile
+        document.documentElement.style.setProperty(
+            "--animation-duration",
+            "0.2s"
+        );
+
+        // Add momentum scrolling for iOS
+        [cardContainer, document.getElementById("cardsContainer")].forEach(
+            (container) => {
+                if (container) {
+                    container.style.webkitOverflowScrolling = "touch";
+                }
+            }
+        );
+    }
+}
+
+// Run on load and resize
+window.addEventListener("load", optimizeForMobile);
+window.addEventListener("resize", optimizeForMobile);
