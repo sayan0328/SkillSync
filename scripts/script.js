@@ -19,7 +19,6 @@ function initializeScrolling() {
 
     smoothScrollLoop();
 
-    // cardContainer.addEventListener("wheel", handleWheel, { passive: false });
     cardContainer.addEventListener("mousedown", handleMouseDown);
     cardContainer.addEventListener("mouseleave", handleContainerMouseLeave);
     cardContainer.addEventListener("mouseup", handleMouseUp);
@@ -42,7 +41,6 @@ skillCards.forEach((card) => {
 });
 
 function handleWheel(e) {
-    // e.preventDefault();  // Prevents you to scroll while hovering on a card
     console.log("Mouse wheel scroll disabled");
 }
 
@@ -57,7 +55,6 @@ function handleMouseDown(e) {
     targetScroll = scrollLeft;
 
     e.target.style.cursor = "grabbing";
-
     e.preventDefault();
 }
 
@@ -156,7 +153,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         smoothScrollLoop();
 
-        // cardsContainer.addEventListener("wheel", handleWheel, { passive: false });
         cardsContainer.addEventListener("mousedown", handleMouseDown);
         cardsContainer.addEventListener(
             "mouseleave",
@@ -182,7 +178,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     function handleWheel(e) {
-        // e.preventDefault();  // Prevents you to scroll while hovering on a card
         console.log("Mouse wheel scroll disabled");
     }
 
@@ -297,19 +292,13 @@ teamNameElement.addEventListener("click", () => {
     teamNameElement.textContent = teamNames[currentIndex];
 });
 
-// OPTIMIZED LOADER FUNCTIONALITY - FIXED PRELOADING LOGIC
+// SIMPLIFIED LOADER - NO PRELOADING, JUST SHOW CONTENT QUICKLY
 window.addEventListener("DOMContentLoaded", () => {
     const loader = document.getElementById("loader");
     const mainContent = document.getElementById("mainContent");
 
-    // Show content after maximum 2.5 seconds regardless of image loading
-    const maxWaitTime = 2500;
-    let contentShown = false;
-
-    const showContent = () => {
-        if (contentShown) return; // Prevent multiple calls
-        contentShown = true;
-
+    // Simple timing - show content after 1.5 seconds
+    setTimeout(() => {
         loader.style.opacity = "0";
         setTimeout(() => {
             loader.style.display = "none";
@@ -318,50 +307,7 @@ window.addEventListener("DOMContentLoaded", () => {
                 mainContent.style.opacity = "1";
             }, 50);
         }, 500);
-    };
-
-    // Set absolute maximum timeout
-    setTimeout(showContent, maxWaitTime);
-
-    // Try to preload critical images with timeout
-    const criticalImages = ["assets/hero-1-image.svg", "assets/heroImage2.svg"];
-    let loadedCount = 0;
-    let imageLoadTimeout;
-
-    // Set timeout for image loading (1.5 seconds max)
-    imageLoadTimeout = setTimeout(() => {
-        console.log("Image loading timeout - showing content anyway");
-        showContent();
-    }, 1500);
-
-    criticalImages.forEach((src, index) => {
-        const img = new Image();
-
-        img.onload = () => {
-            loadedCount++;
-            console.log(`Image ${index + 1} loaded: ${src}`);
-
-            // If both images loaded quickly, show content
-            if (loadedCount === criticalImages.length) {
-                clearTimeout(imageLoadTimeout);
-                setTimeout(showContent, 1000); // Show after 1 second minimum
-            }
-        };
-
-        img.onerror = () => {
-            loadedCount++;
-            console.log(`Image ${index + 1} failed to load: ${src}`);
-
-            // Even if images fail, continue
-            if (loadedCount === criticalImages.length) {
-                clearTimeout(imageLoadTimeout);
-                showContent();
-            }
-        };
-
-        // Start loading
-        img.src = src;
-    });
+    }, 1500); // 1.5 second loader time
 });
 
 // Enhanced mobile touch support - KEEP AS IS
@@ -399,7 +345,6 @@ function addMobileTouchSupport() {
                     currentTouch.clientY - startTouch.clientY
                 );
 
-                // If horizontal swipe is dominant, prevent vertical scroll
                 if (deltaX > deltaY && deltaX > 10) {
                     e.preventDefault();
                     isScrolling = true;
@@ -431,13 +376,11 @@ function optimizeForMobile() {
     const isMobile = window.innerWidth <= 768;
 
     if (isMobile) {
-        // Reduce animation complexity on mobile
         document.documentElement.style.setProperty(
             "--animation-duration",
             "0.2s"
         );
 
-        // Add momentum scrolling for iOS
         [cardContainer, document.getElementById("cardsContainer")].forEach(
             (container) => {
                 if (container) {
