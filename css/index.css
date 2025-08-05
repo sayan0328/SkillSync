@@ -108,8 +108,20 @@ body {
 
 .tagline p span {
     background: linear-gradient(90deg, #0bf 5%, #cf31ff 62%, #f009ff 105%);
+    background-size: 200% 200%;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    animation: waveGradient 2s ease-in-out infinite;
+}
+
+@keyframes waveGradient {
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
 }
 
 .hero-search {
@@ -782,29 +794,9 @@ ul.customList li {
     width: 60px;
     height: 60px;
     border: 4px solid rgba(132, 20, 166, 0.2);
-    border-left: 4px solid #8414a6;
+    border-left: 4px solid #0eb2ff;
     border-radius: 50%;
     animation: spin 1s linear infinite;
-}
-
-.loader-text {
-    color: #8414a6;
-    font-size: 2.5rem;
-    font-weight: 800;
-    margin: 0;
-}
-
-.loader-subtitle {
-    color: #8414a6;
-    font-size: 1.2rem;
-    font-weight: 500;
-    margin: 0;
-    opacity: 0.8;
-}
-
-.main-content {
-    opacity: 0;
-    transition: opacity 0.5s ease;
 }
 
 @keyframes spin {
@@ -814,6 +806,44 @@ ul.customList li {
     100% {
         transform: rotate(360deg);
     }
+}
+
+.loader-text {
+    color: #0eb2ff;
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin: 0;
+}
+
+.loader-subtitle {
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin: 0;
+    opacity: 0.8;
+    color: #8414a6;
+}
+
+.loader-subtitle span {
+    background: linear-gradient(90deg, #0bf 5%, #cf31ff 62%, #f009ff 105%);
+    background-size: 200% 200%;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: waveGradient 2s ease-in-out infinite;
+}
+
+@keyframes waveGradient {
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+.main-content {
+    opacity: 0;
+    transition: opacity 0.5s ease;
 }
 
 /* Footer Styles */
