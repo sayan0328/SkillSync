@@ -4,6 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>SkillSync</title>
+        <link rel="shortcut icon" href="./assets/pen-tool.svg" type="image/x-icon" />
         <link rel="stylesheet" href="css/index.css" />
         <link rel="stylesheet" href="css/utility.css" />
     </head>
@@ -17,7 +18,11 @@
                     <div class="nav-links">
                         <li><a href="html/chat1.html">Chat</a></li>
                         <!-- <li><a href="#" class="button-border">Join Now</a></li> -->
-                        <li><a href="#" class="join-button">Join Now</a></li>
+                        <li>
+                            <a href="html/chat1.html" class="join-button"
+                                >Join Now</a
+                            >
+                        </li>
                     </div>
                 </div>
 
@@ -47,7 +52,11 @@
                                         class="search-input"
                                         placeholder="search for artists, Code, or category" />
                                 </div>
-                                <button class="search-button">Search</button>
+                                <button
+                                    class="search-button"
+                                    onclick="scrollToSkillMasters()">
+                                    Search
+                                </button>
                             </div>
 
                             <div class="search-tags">
@@ -116,7 +125,7 @@
                 <h1>Trending Skills</h1>
                 <div class="SkillsRight">
                     <a href="#">View All Skills</a>
-                    <img src="assets/arrow.png" alt="arrow" />
+                    <img src="assets/arrow.svg" alt="arrow" />
                 </div>
             </div>
             <div class="SkillCard" id="cardContainer">
@@ -162,20 +171,20 @@
                         <p>Yoga, Dancing, Personal Training</p>
                     </div>
                 </div>
-                <div class="Skillcards" data-card="7">
+                <!-- <div class="Skillcards" data-card="7">
                     <img src="assets/skillImages/skill7.svg" alt="" />
                     <div class="card-footer">
                         <h3>Business Skills</h3>
                         <p>Marketing, Public Speaking, Writing</p>
                     </div>
                 </div>
-                <!-- <div class="Skillcards" data-card="8">
+                <div class="Skillcards" data-card="8">
                     <img src="assets/skillImages/skill8.svg" alt="" />
                     <div class="card-footer">
                         <h3>Home & Garden</h3>
                         <p>Carpentry, Plumbing, Gardening</p>
                     </div>
-                </div> -->
+                </div>
                 <div class="Skillcards" data-card="9">
                     <img src="assets/skillImages/skill9.svg" alt="" />
                     <div class="card-footer">
@@ -203,34 +212,38 @@
                         <h3>Financial</h3>
                         <p>Investing, Budgeting, Tax Preparation</p>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
         <div class="SkillMasters">
             <h1>Skill Masters</h1>
             <div class="SkillsMasterRight">
                 <a href="#">View All Skills</a>
-                <img src="assets/arrow.png" alt="arrow" />
+                <img src="assets/arrow.svg" alt="arrow" />
             </div>
         </div>
         <div class="cards-wrapper">
             <div class="cards-container" id="cardsContainer">
                 <div class="profile-card">
                     <div class="card-image-section">
-                        <img src="assets/SkillMasters.svg" alt="" />
+                        <img
+                            src="assets/masterImages/david_master.svg"
+                            alt="" />
                         <div class="rating-badge">
                             <div class="ratings">
                                 <span class="star-icon">★</span>
-                                <span>4.5</span>
+                                <span>4.3</span>
                             </div>
                         </div>
                         <div class="level-badge">Master</div>
                     </div>
                     <div class="card-content">
-                        <div class="status-label">Looking for Guitarist</div>
+                        <div class="status-label">
+                            Looking for Public Speaking
+                        </div>
                         <div class="user-info">
                             <img
-                                src="assets/User Thumb.svg"
+                                src="assets/masterImages/David.svg"
                                 alt="David Kim"
                                 class="user-avatar" />
                             <div class="user-details">
@@ -243,6 +256,124 @@
                     </div>
                 </div>
                 <div class="profile-card">
+                    <div class="card-image-section">
+                        <img
+                            src="assets/masterImages/james_master.svg"
+                            alt="" />
+                        <div class="rating-badge">
+                            <div class="ratings">
+                                <span class="star-icon">★</span>
+                                <span>4.9</span>
+                            </div>
+                        </div>
+                        <div class="level-badge">Master</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="status-label">
+                            Looking for Video Editing
+                        </div>
+                        <div class="user-info">
+                            <img
+                                src="assets/masterImages/James.svg"
+                                alt="James Master"
+                                class="user-avatar" />
+                            <div class="user-details">
+                                <h3>James Chen</h3>
+                                <p class="user-skills">
+                                    Guitar (Acoustic/Electric), Music Theory
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-card">
+                    <div class="card-image-section">
+                        <img
+                            src="assets/masterImages/maria_master.svg"
+                            alt="" />
+                        <div class="rating-badge">
+                            <div class="ratings">
+                                <span class="star-icon">★</span>
+                                <span>4.2</span>
+                            </div>
+                        </div>
+                        <div class="level-badge">Master</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="status-label">Looking for Web Design</div>
+                        <div class="user-info">
+                            <img
+                                src="assets/masterImages/Maria.svg"
+                                alt="David Kim"
+                                class="user-avatar" />
+                            <div class="user-details">
+                                <h3>Maria Santos</h3>
+                                <p class="user-skills">
+                                    Oil Painting, Portrait Drawing
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-card">
+                    <div class="card-image-section">
+                        <img
+                            src="assets/masterImages/priya_master.svg"
+                            alt="" />
+                        <div class="rating-badge">
+                            <div class="ratings">
+                                <span class="star-icon">★</span>
+                                <span>5.0</span>
+                            </div>
+                        </div>
+                        <div class="level-badge">Master</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="status-label">
+                            Looking for Sommelier Basics
+                        </div>
+                        <div class="user-info">
+                            <img
+                                src="assets/masterImages/Priya.svg"
+                                alt="David Kim"
+                                class="user-avatar" />
+                            <div class="user-details">
+                                <h3>Priya Sharma</h3>
+                                <p class="user-skills">
+                                    Indian Cuisine, Spice Blending
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-card">
+                    <div class="card-image-section">
+                        <img src="assets/masterImages/tom_master.svg" alt="" />
+                        <div class="rating-badge">
+                            <div class="ratings">
+                                <span class="star-icon">★</span>
+                                <span>4.5</span>
+                            </div>
+                        </div>
+                        <div class="level-badge">Master</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="status-label">Looking for Gardening</div>
+                        <div class="user-info">
+                            <img
+                                src="assets/masterImages/tom.svg"
+                                alt="David Kim"
+                                class="user-avatar" />
+                            <div class="user-details">
+                                <h3>Tom Builder</h3>
+                                <p class="user-skills">
+                                    Home Renovation, Carpentry
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="profile-card">
                     <div class="card-image-section">
                         <img src="assets/SkillMasters.svg" alt="" />
                         <div class="rating-badge">
@@ -279,114 +410,6 @@
                             </div>
                         </div>
                         <div class="level-badge">Master</div>
-                    </div>
-                    <div class="card-content">
-                        <div class="status-label">Looking for Guitarist</div>
-                        <div class="user-info">
-                            <img
-                                src="assets/User Thumb.svg"
-                                alt="David Kim"
-                                class="user-avatar" />
-                            <div class="user-details">
-                                <h3>David Kim</h3>
-                                <p class="user-skills">
-                                    Python Programming, Data Analysis
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="profile-card">
-                    <div class="card-image-section">
-                        <img src="assets/SkillMasters.svg" alt="" />
-                        <div class="rating-badge">
-                            <div class="ratings">
-                                <span class="star-icon">★</span>
-                                <span>4.5</span>
-                            </div>
-                        </div>
-                        <div class="level-badge">Master</div>
-                    </div>
-                    <div class="card-content">
-                        <div class="status-label">Looking for Guitarist</div>
-                        <div class="user-info">
-                            <img
-                                src="assets/User Thumb.svg"
-                                alt="David Kim"
-                                class="user-avatar" />
-                            <div class="user-details">
-                                <h3>David Kim</h3>
-                                <p class="user-skills">
-                                    Python Programming, Data Analysis
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="profile-card">
-                    <div class="card-image-section">
-                        <img src="assets/SkillMasters.svg" alt="" />
-                        <div class="rating-badge">
-                            <div class="ratings">
-                                <span class="star-icon">★</span>
-                                <span>4.5</span>
-                            </div>
-                        </div>
-                        <div class="level-badge">Master</div>
-                    </div>
-                    <div class="card-content">
-                        <div class="status-label">Looking for Guitarist</div>
-                        <div class="user-info">
-                            <img
-                                src="assets/User Thumb.svg"
-                                alt="David Kim"
-                                class="user-avatar" />
-                            <div class="user-details">
-                                <h3>David Kim</h3>
-                                <p class="user-skills">
-                                    Python Programming, Data Analysis
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="profile-card">
-                    <div class="card-image-section">
-                        <img src="assets/SkillMasters.svg" alt="" />
-                        <div class="rating-badge">
-                            <div class="ratings">
-                                <span class="star-icon">★</span>
-                                <span>4.5</span>
-                            </div>
-                        </div>
-                        <div class="level-badge">Master</div>
-                    </div>
-                    <div class="card-content">
-                        <div class="status-label">Looking for Guitarist</div>
-                        <div class="user-info">
-                            <img
-                                src="assets/User Thumb.svg"
-                                alt="David Kim"
-                                class="user-avatar" />
-                            <div class="user-details">
-                                <h3>David Kim</h3>
-                                <p class="user-skills">
-                                    Python Programming, Data Analysis
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="profile-card">
-                    <div class="card-image-section">
-                        <img src="assets/SkillMasters.svg" alt="" />
-                        <div class="rating-badge">
-                            <div class="ratings">
-                                <span class="star-icon">★</span>
-                                <span>4.5</span>
-                            </div>
-                        </div>
-                        <div class="level-badge">Master</div>
                         <div class="status-label">Looking for Guitarist</div>
                     </div>
                     <div class="card-content">
@@ -403,10 +426,19 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
 
+        <!-- Footer -->
+        <footer class="footer">
+            <p>
+                Dev and Designed by
+                <span id="teamName" class="team-name">Team Naksatra</span>
+            </p>
+        </footer>
+
         <script src="./scripts/script.js"></script>
+        <script></script>
     </body>
 </html>
