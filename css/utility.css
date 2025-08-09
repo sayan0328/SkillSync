@@ -32,7 +32,9 @@
 .fw-bold {
     font-weight: bold;
 }
-
+a {
+    text-decoration: none;
+}
 /* Responsive utilities */
 @media (max-width: 90rem) {
     .padding-h-100 {

@@ -108,8 +108,20 @@ body {
 
 .tagline p span {
     background: linear-gradient(90deg, #0bf 5%, #cf31ff 62%, #f009ff 105%);
+    background-size: 200% 200%;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    animation: waveGradient 2s ease-in-out infinite;
+}
+
+@keyframes waveGradient {
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
 }
 
 .hero-search {
@@ -489,8 +501,6 @@ ul.customList li {
     max-width: 120rem;
     margin: 2rem auto 1.25rem;
     padding: 0 2rem;
-    flex-wrap: wrap;
-    gap: 1rem;
 }
 
 .SkillMasters h1 {
@@ -620,10 +630,11 @@ ul.customList li {
     display: flex;
     align-items: center;
     gap: 0.3125rem;
+    padding: 0.2rem 0.1rem;
 }
 
 .star-icon {
-    color: #6a6a6a;
+    color: #ffd700;
     font-size: clamp(1.2rem, 2vw, 1.25rem);
 }
 
@@ -631,10 +642,11 @@ ul.customList li {
     position: absolute;
     top: 0.9375rem;
     right: 0.9375rem;
-    background: rgba(255, 255, 255, 0.7);
+    border-radius: 0.625rem;
+    background: rgba(255, 255, 255, 0.66);
+    backdrop-filter: blur(6px);
     color: black;
     padding: 0.5rem 1rem;
-    border-radius: 0.625rem;
     font-weight: 700;
     font-size: clamp(0.875rem, 1.5vw, 0.9375rem);
 }
@@ -642,7 +654,7 @@ ul.customList li {
 .status-label {
     position: absolute;
     bottom: 10rem;
-    left: 70%;
+    left: 50%;
     z-index: 1;
     transform: translateX(-50%);
     background: linear-gradient(90deg, #def0fb, #c3cef9, #f1d2f0);
@@ -737,7 +749,34 @@ ul.customList li {
     box-shadow: 0 0.3125rem 0.9375rem rgba(0, 0, 0, 0.1);
 }
 
-/* Responsive styles */
+/* Footer Styles */
+.footer {
+    background: #f8f9fa;
+    padding: 2rem 0;
+    text-align: center;
+    margin-top: 2rem;
+    border-top: 1px solid #e9ecef;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 0.875rem;
+    color: #6c757d;
+}
+
+.team-name {
+    color: #8414a6;
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.team-name:hover {
+    color: #6d1183;
+    text-decoration: underline;
+}
+
+/* Original Responsive styles only */
 @media (max-width: 75rem) {
     .hero-1 {
         flex-direction: column;
